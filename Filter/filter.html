@@ -1,0 +1,10 @@
+<!--Filtering and emitting a value from array of items-->
+
+<select (change)="onSelected($event.target.value)">
+    <option value="" selected>
+        All items
+    </option>
+    <option *ngFor="let x of _items" [value]="x.id">
+        {{x.name}}
+    </option>
+</select>

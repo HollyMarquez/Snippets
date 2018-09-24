@@ -1,0 +1,16 @@
+<div class="modal open" tabindex="0" style="z-index: 1003; display: block; opacity: 1; top: 10%; transform: scaleX(1) scaleY(1);">
+    <div class="modal-content">
+        <h4> Modal Header</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis nisl sed nulla pulvinar sodales. 
+            In vestibulum placerat nunc. Vivamus lorem turpis, elementum id arcu eu, placerat congue libero. Proin at neque orci. 
+            Mauris velit nibh, pretium a elit non, faucibus scelerisque orci. Fusce sed consequat tellus, at tincidunt nisl. Aenean vitae lacus tortor. 
+            Pellentesque in felis orci.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a (click)="cancel()" class="modal-action modal-close waves-effect red btn">Cancel</a>
+        <a (click)="cancel()" class="modal-action modal-close waves-effect red btn">Agree</a>
+    </div>
+</div>
+
+<div class="modal-overlay" (click)="cancel()" style="z-index: 1002; display: block; opacity: 0.5;"></div>

@@ -1,0 +1,47 @@
+<!--Basic information display with Ngx-datatable, including search function-->
+
+<form class="row example-form">
+    <div class="input-field col s12">
+        <input type="search" id="search" placeholder="Search..." (keyup)="onKey($event)" />
+        <label for="search" class="label-icon">
+            <i class="fa fa-search"></i>
+        </label>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col s12">
+        <ngx-datatable class="material striped" [rows]="object" [columnMode]="'force'" [headerHeight]="50"
+            [footerHeight]="50" [rowHeight]="'auto'" [scrollbarH]="true" [limit]="10" [count]="25" [offset]="0">
+            <ngx-datatable-column prop="objectId">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="objectName">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="objectProperty">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Edit" sortable="false">
+                <ng-template let-row="row" let-value="value" class="center-align" ngx-datatable-cell-template>
+                    <a class="btn" [routerLink]="['/object', row.id">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Delete" sortable="false">
+                <ng-template let-row="row" let-value="value" class="center-align" ngx-datatable-cell-template>
+                    <a class="btn" (click)="delete(row)">
+                        <i class="fa fa-times red-text darken-2"></i>
+                    </a>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</div>
