@@ -1,0 +1,51 @@
+Angular - pass data from one component to another on route navigation.
+
+
+
+
+SENDING COMPONENT:
+import {Component} from "@angular/core";
+import {Router, NavigationExtras} from "@angular/router";
+
+@Component({
+    selector: "page1",
+    templateUrl: "./components/page1/page1.html",
+})
+export class Page1Component {
+
+    public constructor(private router: Router) { }
+
+    public onTap() {
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                "firstname": "Nic",
+                "lastname": "Raboy"
+            }
+        };
+        this.router.navigate(["page2"], navigationExtras);
+    }
+
+}
+
+
+RECIEVING COMPONENT:
+import {Component} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+
+@Component({
+    selector: "page2",
+    templateUrl: "./components/page2/page2.html",
+})
+export class Page2Component {
+
+    public firstname: string;
+    public lastname: string;
+
+    public constructor(private route: ActivatedRoute) {
+        this.route.queryParams.subscribe(params => {
+            this.firstname = params["firstname"];
+            this.lastname = params["lastname"];
+        });
+    }
+
+}
